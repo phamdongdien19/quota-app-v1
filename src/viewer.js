@@ -57,8 +57,8 @@ const fetchAndRenderData = async () => {
 
   app.projectTitle.textContent = config.projectName;
 
-  // Use proxy path '/api' which maps to 'https://api.alchemer.com/v5'
-  const url = `/api/survey/${config.surveyId}/quotas?api_token=${encodeURIComponent(config.apiKey)}&api_token_secret=${encodeURIComponent(config.apiSecret)}`;
+  // Call Vercel serverless function which proxies to Alchemer API
+  const url = `/api/quotas?surveyId=${config.surveyId}&api_token=${encodeURIComponent(config.apiKey)}&api_token_secret=${encodeURIComponent(config.apiSecret)}`;
 
   try {
     app.lastUpdated.textContent = "Đang cập nhật...";
